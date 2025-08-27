@@ -13,15 +13,21 @@ classDiagram
         +gestionarUsuarios(): void
         +agregarEquipo(equipo: Equipo): void
         +actualizarEquipo(equipo: Equipo): void
+        +programarMantenimiento(mantenimiento: Mantenimiento): void
+        +generarReporte(): Reporte
     }
 
     class Gestor {
         +agregarEquipo(equipo: Equipo): void
         +actualizarEquipo(equipo: Equipo): void
+        +subirDocumento(documento: Documento): void
     }
 
     class Tecnico {
         +registrarMantenimiento(mantenimiento: Mantenimiento): void
+        +buscarEquipo(criterio: string): list
+        +visualizarHistorial(equipo: Equipo): list
+        +recibirNotificaciones(): list
     }
 
     class Equipo {
@@ -30,6 +36,7 @@ classDiagram
         -marca: string
         -modelo: string
         -numeroSerie: string
+        -categoria: string
         -ubicacion: string
         -fechaAdquisicion: date
         -estado: string
@@ -41,8 +48,10 @@ classDiagram
     class Mantenimiento {
         -id: int
         -tipo: string
-        -fecha: date
+        -fechaProgramada: date
+        -fechaEjecucion: date
         -descripcion: string
+        -estado: string
         +programar(): void
         +registrarEjecucion(): void
     }
@@ -50,15 +59,48 @@ classDiagram
     class Documento {
         -id: int
         -nombreArchivo: string
+        -tipo: string
         -rutaArchivo: string
         -fechaSubida: date
         +subir(): void
         +descargar(): void
     }
 
+    class Categoria {
+        -id: int
+        -nombre: string
+        -descripcion: string
+    }
+
+    class Notificacion {
+        -id: int
+        -mensaje: string
+        -fecha: date
+        -leida: bool
+        +enviar(): void
+        +marcarComoLeida(): void
+    }
+
+    class Reporte {
+        -id: int
+        -tipo: string
+        -fechaGeneracion: date
+        +generar(): void
+        +exportar(): void
+    }
+
     Usuario <|-- Administrador
     Usuario <|-- Gestor
     Usuario <|-- Tecnico
-    Tecnico "1" -- "0..*" Mantenimiento : realiza >
-    Equipo "1" -- "0..*" Mantenimiento : < relacionado a
-    Equipo "1" -- "0..*" Documento : < tiene
+    
+    Tecnico "1" -- "0..*" Mantenimiento : realiza
+    Tecnico "1" -- "0..*" Notificacion : recibe
+    
+    Equipo "1" -- "0..*" Mantenimiento : tiene
+    Equipo "1" -- "0..*" Documento : contiene
+    Equipo "1" -- "1" Categoria : pertenece_a
+    
+    Mantenimiento "1" -- "1" Tecnico : asignado_a
+    Mantenimiento "1" -- "0..1" Notificacion : genera
+    
+    Administrador "1" -- "0..*" Reporte : genera
