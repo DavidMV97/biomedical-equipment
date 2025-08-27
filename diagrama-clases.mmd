@@ -15,7 +15,7 @@ classDiagram
         +actualizarEquipo(equipo: Equipo): void
     }
 
-    class Registrador {
+    class Gestor {
         +agregarEquipo(equipo: Equipo): void
         +actualizarEquipo(equipo: Equipo): void
     }
@@ -57,7 +57,7 @@ classDiagram
     }
 
     Usuario <|-- Administrador
-    Usuario <|-- Registrador
+    Usuario <|-- Gestor
     Usuario <|-- Tecnico
     Tecnico "1" -- "0..*" Mantenimiento : realiza >
     Equipo "1" -- "0..*" Mantenimiento : < relacionado a
