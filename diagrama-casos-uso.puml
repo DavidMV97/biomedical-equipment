@@ -1,0 +1,68 @@
+@startuml
+left to right direction
+
+actor "Administrador" as Admin
+actor "Gestor" as Gestor
+actor "Técnico Biomédico" as Tecnico
+
+Admin <|-- Gestor
+Admin <|-- Tecnico
+
+rectangle "Sistema de Gestión de Equipos Biomédicos" {
+  usecase "Registrar equipo biomédico" as UC1
+  usecase "Buscar equipos" as UC2
+  usecase "Registrar mantenimiento" as UC3
+  usecase "Actualizar información de equipo" as UC4
+  usecase "Cargar documentos" as UC5
+  usecase "Programar mantenimiento preventivo" as UC6
+  usecase "Recibir notificaciones" as UC7
+  usecase "Gestionar usuarios y roles" as UC8
+  usecase "Visualizar historial de mantenimientos" as UC9
+  usecase "Generar reporte general" as UC10
+
+  UC1 .> UC5 : include
+  UC3 .> UC9 : include
+  UC6 .> UC7 : extend
+}
+
+Gestor --> UC1
+Gestor --> UC5
+
+Tecnico --> UC2
+Tecnico --> UC3
+Tecnico --> UC7
+Tecnico --> UC9
+
+Admin --> UC4
+Admin --> UC6
+Admin --> UC8
+Admin --> UC10
+
+note right of UC1
+  **Datos del equipo:**
+  - Marca
+  - Modelo
+  - Número de serie
+  - Ubicación
+  - Fecha adquisición
+  - Estado
+  - Categoría
+end note
+
+note right of UC2
+  **Criterios de búsqueda:**
+  - Número de serie
+  - Marca
+  - Categoría
+  - Modelo
+end note
+
+note right of UC5
+  **Tipos de documentos:**
+  - Manuales técnicos
+  - Garantías
+  - Reportes de mantenimiento
+  - Certificaciones
+end note
+
+@enduml
