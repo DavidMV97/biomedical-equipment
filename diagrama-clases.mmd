@@ -1,0 +1,64 @@
+classDiagram
+    class Usuario {
+        <<abstract>>
+        -id: int
+        -nombre: string
+        -email: string
+        -contraseña: string
+        +iniciarSesion(): bool
+        +cerrarSesion(): void
+    }
+
+    class Administrador {
+        +gestionarUsuarios(): void
+        +agregarEquipo(equipo: Equipo): void
+        +actualizarEquipo(equipo: Equipo): void
+    }
+
+    class Registrador {
+        +agregarEquipo(equipo: Equipo): void
+        +actualizarEquipo(equipo: Equipo): void
+    }
+
+    class Tecnico {
+        +registrarMantenimiento(mantenimiento: Mantenimiento): void
+    }
+
+    class Equipo {
+        -id: int
+        -nombre: string
+        -marca: string
+        -modelo: string
+        -numeroSerie: string
+        -ubicacion: string
+        -fechaAdquisicion: date
+        -estado: string
+        +cambiarEstado(estado: string): void
+        +asignarUbicacion(ubicacion: string): void
+        +obtenerHistorial(): list
+    }
+
+    class Mantenimiento {
+        -id: int
+        -tipo: string
+        -fecha: date
+        -descripcion: string
+        +programar(): void
+        +registrarEjecucion(): void
+    }
+
+    class Documento {
+        -id: int
+        -nombreArchivo: string
+        -rutaArchivo: string
+        -fechaSubida: date
+        +subir(): void
+        +descargar(): void
+    }
+
+    Usuario <|-- Administrador
+    Usuario <|-- Registrador
+    Usuario <|-- Tecnico
+    Tecnico "1" -- "0..*" Mantenimiento : realiza >
+    Equipo "1" -- "0..*" Mantenimiento : < relacionado a
+    Equipo "1" -- "0..*" Documento : < tiene
