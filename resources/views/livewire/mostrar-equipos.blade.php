@@ -17,7 +17,7 @@
             </div>
         </div>
     @empty
-        <p class="p-3 text-center text-sm text-gray-600">No hay equipos</p>
+        <p class="p-3 text-center text-gray-600">No hay equipos</p>
     @endforelse
 
 

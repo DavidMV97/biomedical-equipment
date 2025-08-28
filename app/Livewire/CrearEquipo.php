@@ -38,8 +38,8 @@ class CrearEquipo extends Component
         $datos = $this->validate();
 
         // Almacenar imagen
-        $imagen = $this->imagen->store('public/equipos');
-        $datos['imagen'] = str_replace('public/equipos/', '', $imagen);
+        $imagen = $this->imagen->store('equipo', 'public');
+        $datos['imagen'] = str_replace('equipo/', '', $imagen);
 
         // Crear equipo
         Equipo::create([

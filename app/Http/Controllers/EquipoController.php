@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipo;
 use Illuminate\Http\Request;
 
 class EquipoController extends Controller
@@ -11,5 +12,12 @@ class EquipoController extends Controller
         return view('equipos.create');
     }
 
-    public function edit() {}
+    public function edit(Equipo $equipo) {
+        $this->authorize('update', $equipo);
+        return view('equipos.edit', [
+            'equipo' => $equipo
+        ]);
+    }
+
+    
 }

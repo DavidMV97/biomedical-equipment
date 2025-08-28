@@ -19,7 +19,12 @@
         <div class="flex-1 flex flex-col">
             <!-- Content -->
             <main class="p-6 space-y-6">
-                
+                @if (session()->has('mensaje'))
+                    <div
+                        class="capitalize border border-green-600 bg-green-100 text-green-600 font-bold p-2 my-3 text-sm">
+                        {{ session('mensaje') }}
+                    </div>
+                @endif
                 <div class="bg-white rounded-xl shadow-md p-6">
                     <livewire:mostrar-equipos />
                 </div>
@@ -27,4 +32,3 @@
         </div>
     </div>
 </x-app-layout>
-
