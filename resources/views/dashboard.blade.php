@@ -1,4 +1,4 @@
-{{-- <!-- resources/views/admin/dashboard.blade.php -->
+<!-- resources/views/admin/dashboard.blade.php -->
 <x-app-layout>
     <div class="flex h-screen bg-gray-100">
 
@@ -17,16 +17,6 @@
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
-
-            <!-- Header -->
-            <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
-                <h1 class="text-xl font-semibold text-gray-700">Dashboard</h1>
-                <div class="flex items-center space-x-4">
-                    <span class="text-gray-600">Admin</span>
-                    <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Salir</button>
-                </div>
-            </header>
-
             <!-- Content -->
             <main class="p-6 space-y-6">
 
@@ -60,6 +50,5 @@
             </main>
         </div>
     </div>
-</x-app-layout> --}}
+</x-app-layout>
 
-<h1>estas dentro</h1>

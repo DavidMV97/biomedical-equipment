@@ -29,11 +29,10 @@
                 >
                 <option value="">-- Selecciona un rol --</option>
                 <option value="1">Administrador</option>
-                <option value="2">Técnico</option>
-                <option value="3">Gestor</option>
+                <option value="2">Gestor</option>
+                <option value="3">Técnico</option>
             </select>
             <x-input-error :messages="$errors->get('rol')" class="mt-2" />
-
         </div>
 
         <!-- Password -->
