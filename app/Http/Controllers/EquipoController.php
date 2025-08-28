@@ -18,6 +18,4 @@ class EquipoController extends Controller
             'equipo' => $equipo
         ]);
     }
-
-    
 }

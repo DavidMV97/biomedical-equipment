@@ -5,15 +5,15 @@
                 <a href="" class="text-xl font-bold">
                     {{ $equipo->nombre }}
                 </a>
-                <p class="text-sm text-gray-600 font-bold"> Marca:  {{ $equipo->marca }} </p>
+                <p class="text-sm text-gray-600 font-bold"> Marca: {{ $equipo->marca }} </p>
                 <p class="text-sm text-gray-500 capitalizes"> Estado: {{ $equipo->estado }} </p>
             </div>
 
             <div class="flex flex-col md:flex-row items-stretch gap-3 mt-5 md:mt-0">
                 <a href="{{ route('equipos.edit', $equipo->id) }}"
                     class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center">Editar</a>
-                <a href=""
-                    class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center">Eliminar</a>
+                <button type="button" wire:click="$dispatch('confirmarEliminar', {{ $equipo->id }})"
+                    class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center">Eliminar</button>
             </div>
         </div>
     @empty
@@ -25,3 +25,33 @@
         {{ $equipos->links() }}
     </div>
 </div>
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('livewire:initialized', () => {
+             @this.on('confirmarEliminar', equipoId => {
+                Swal.fire({
+                    title: '¿Eliminar Equipo?',
+                    text: "¡Un equipo eliminado no se puede recuperar!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Eliminar!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // ELiminar el equipo en el backend
+                        @this.call('eliminarEquipo',equipoId);
+                        Swal.fire(
+                            'Equipo Eliminado!',
+                            'El equipo se eliminó correctamente.',
+                            'success'
+                        )
+                    }
+                })
+            })
+        })
+    </script>
+@endpush
