@@ -18,6 +18,7 @@ class Equipo extends Model
         'categoria',
         'ubicacion',
         'fechaAdquisicion',
-        'estado'
+        'estado',
+        'imagen'
     ]; 
 }
