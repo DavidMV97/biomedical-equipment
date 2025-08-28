@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <h1 class="text-2xl font-bold text-center my-10">Crear equipo</h1>
                     <div class="md:flex md:justify-center p-5">
-                        <input type="text" placeholder="nombre quipo">
+                         <livewire:crear-equipo />
                     </div>
                 </div>
             </div>
