@@ -4,10 +4,7 @@ use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/dashboard', [EquipoController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/equipos/create',  [EquipoController::class, 'create'])->middleware(['auth', 'verified'])->name('equipos.create');
 Route::get('/equipos/{equipo}/edit',  [EquipoController::class, 'edit'])->middleware(['auth', 'verified'])->name('equipos.edit');
 Route::get('/equipos/{equipo}',  [EquipoController::class, 'show'])->middleware(['auth', 'verified'])->name('equipos.show');

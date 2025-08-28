@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="md:grid md:grid-cols-6 gap-4">
+    {{-- <div class="md:grid md:grid-cols-6 gap-4">
         <div class="md:col-span-2" >
             <img src="{{ asset('storage/equipo/' . $equipo->imagen) }}" alt="Imagen del equipo {{ $equipo->nombre }}">
         </div>
@@ -33,6 +33,6 @@
             <h2 class="text-2xl font-bold mb-5" >Estado</h2>
             <p>{{$equipo->estado}}</p>
         </div>
-    </div>
+    </div> --}}
 
 </div>
