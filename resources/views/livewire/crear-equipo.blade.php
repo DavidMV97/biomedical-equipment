@@ -1,4 +1,10 @@
 <form action="" class="md:w-1/2 space-y-5" wire:submit.prevent='crearEquipo'>
+     <div>
+        <x-input-label for="nombre" :value="__('Nombre')" />
+        <x-text-input id="nombre" class="block mt-1 w-full" type="text" wire:model="nombre" :value="old('nombre')"
+            placeholder="Nombre del equipo" />
+        <x-input-error :messages="$errors->get('nombre')" class="mt-2" />
+    </div>
     <div>
         <x-input-label for="marca" :value="__('Marca')" />
         <x-text-input id="marca" class="block mt-1 w-full" type="text" wire:model="marca" :value="old('marca')"
