@@ -10,6 +10,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/equipos/create',  [EquipoController::class, 'create'])->middleware(['auth', 'verified'])->name('equipos.create');
 Route::get('/equipos/{equipo}/edit',  [EquipoController::class, 'edit'])->middleware(['auth', 'verified'])->name('equipos.edit');
+Route::get('/equipos/{equipo}',  [EquipoController::class, 'show'])->middleware(['auth', 'verified'])->name('equipos.show');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

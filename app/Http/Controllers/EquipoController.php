@@ -12,8 +12,15 @@ class EquipoController extends Controller
         return view('equipos.create');
     }
 
+    public function show(Equipo $equipo) {
+        //$this->authorize('view', $equipo);
+        return view('equipos.show', [
+            'equipo' => $equipo
+        ]);
+    }
+
     public function edit(Equipo $equipo) {
-        $this->authorize('update', $equipo);
+        //$this->authorize('update', $equipo);
         return view('equipos.edit', [
             'equipo' => $equipo
         ]);
