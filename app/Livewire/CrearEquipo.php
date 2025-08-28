@@ -4,21 +4,36 @@ namespace App\Livewire;
 
 use App\Models\Equipo;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CrearEquipo extends Component
 {
 
+    public $nombre;
+    public $marca;
+    public $modelo;
+    public $numeroSerie;
+    public $categoria;
+    public $ubicacion;
+    public $fechaAdquisicion;
+    public $estado;
+    public $imagen;
+
+    use WithFileUploads;
+
     protected $rules = [
-        'titulo' => 'required|string',
-        'salario' => 'required',
-        'categoria' => 'required',
-        'empresa' => 'required',
-        'ultimo_dia' => 'required',
-        'descripcion' => 'required',
-        'imagen' => 'required|image|max:1024'
+        'nombre' => 'required|string',
+        'marca' => 'required|string',
+        'modelo' => 'required|string',
+        'numeroSerie' => 'required|string',
+        'categoria' => 'required|string',
+        'ubicacion' => 'required|string',
+        'fechaAdquisicion' => 'required|date',
+        'estado' => 'required|string',
+        'imagen' => 'required|image|max:1024',
     ];
 
-    public function crearVacante()
+    public function crearEquipo()
     {
         $datos = $this->validate();
 
@@ -28,19 +43,21 @@ class CrearEquipo extends Component
 
         // Crear equipo
         Equipo::create([
-            'titulo' => $datos['titulo'],
-            'salario_id'  => $datos['salario'],
-            'categoria_id'  => $datos['categoria'],
-            'empresa'  => $datos['empresa'],
-            'ultimo_dia'  => $datos['ultimo_dia'],
-            'descripcion'  => $datos['descripcion'],
-            'imagen'  => $datos['imagen'],
+            'nombre' => $datos['nombre'],
+            'marca' => $datos['marca'],
+            'modelo' => $datos['modelo'],
+            'numeroSerie' => $datos['numeroSerie'],
+            'categoria' => $datos['categoria'],
+            'ubicacion' => $datos['ubicacion'],
+            'fechaAdquisicion' => $datos['fechaAdquisicion'],
+            'estado' => $datos['estado'],
+            'imagen' => $datos['imagen'],
             'user_id'  => auth()->user()->id
         ]);
 
         session()->flash('mensaje', 'Equipo creado correctamente');
 
-        return redirect()->route('equipos.index');
+        return redirect()->route('dashboard');
     }
 
     public function render()

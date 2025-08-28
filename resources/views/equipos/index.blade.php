@@ -1,1 +1,0 @@
-<h1>index equipos</h1>

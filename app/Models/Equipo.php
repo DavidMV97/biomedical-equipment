@@ -19,6 +19,7 @@ class Equipo extends Model
         'ubicacion',
         'fechaAdquisicion',
         'estado',
-        'imagen'
+        'imagen',
+        'user_id'
     ]; 
 }
