@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class EquipoController extends Controller
 {
-        public function create()
+    public function create()
     {
         return view('equipos.create');
     }
+
+    public function edit() {}
 }

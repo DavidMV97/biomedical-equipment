@@ -20,18 +20,9 @@
             <!-- Content -->
             <main class="p-6 space-y-6">
                 
-
-                <!-- Recent Activity -->
                 <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Actividad Reciente</h3>
-                    <ul class="space-y-3">
-                        <li class="text-gray-600">👤 Nuevo usuario registrado: <span class="font-medium">Juan
-                                Pérez</span></li>
-                        <li class="text-gray-600">📊 Reporte generado por <span class="font-medium">Admin</span></li>
-                        <li class="text-gray-600">⚙️ Configuración actualizada</li>
-                    </ul>
+                    <livewire:mostrar-equipos />
                 </div>
-
             </main>
         </div>
     </div>
