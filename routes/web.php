@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\MantenimientoController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\HistorialMantenimientos;
@@ -10,6 +11,13 @@ Route::get('/dashboard', [EquipoController::class, 'index'])->middleware(['auth'
 Route::get('/equipos/create',  [EquipoController::class, 'create'])->middleware(['auth', 'verified'])->name('equipos.create');
 Route::get('/equipos/{equipo}/edit',  [EquipoController::class, 'edit'])->middleware(['auth', 'verified'])->name('equipos.edit');
 Route::get('/equipos/{equipo}',  [EquipoController::class, 'show'])->middleware(['auth', 'verified'])->name('equipos.show');
+
+
+
+Route::get('/mantenimientos/{mantenimiento}', [MantenimientoController::class, 'show'])
+    ->name('mantenimientos.show');
+
+
 Route::get('/equipos/{equipo}/historial', HistorialMantenimientos::class)->name('equipos.historial');
 
 
