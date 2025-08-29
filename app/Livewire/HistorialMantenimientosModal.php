@@ -8,6 +8,7 @@ use Livewire\Component;
 class HistorialMantenimientosModal extends Component
 {
     public $equipo;
+    public $showModal = false;
 
     public function render()
     {

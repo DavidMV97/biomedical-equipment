@@ -2,7 +2,7 @@
     @forelse ($equipos as $equipo)
         <div class="p-6 bg-white border-b border-gray-200 md:flex md:justify-between md:items-center">
             <div class="space-y-3">
-                <a href="{{ route('equipos.show', $equipo->id)}}" class="text-xl font-bold hover:underline">
+                <a href="{{ route('equipos.show', $equipo->id) }}" class="text-xl font-bold hover:underline">
                     {{ $equipo->nombre }}
                 </a>
                 <p class="text-sm text-gray-600 font-bold"> Marca: {{ $equipo->marca }} </p>
@@ -31,7 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener('livewire:initialized', () => {
-             @this.on('confirmarEliminar', equipoId => {
+            @this.on('confirmarEliminar', equipoId => {
                 Swal.fire({
                     title: '¿Eliminar Equipo?',
                     text: "¡Un equipo eliminado no se puede recuperar!",
@@ -44,7 +44,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // ELiminar el equipo en el backend
-                        @this.call('eliminarEquipo',equipoId);
+                        @this.call('eliminarEquipo', equipoId);
                         Swal.fire(
                             'Equipo Eliminado!',
                             'El equipo se eliminó correctamente.',

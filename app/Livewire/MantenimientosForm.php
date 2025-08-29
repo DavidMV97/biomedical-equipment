@@ -29,7 +29,7 @@ class MantenimientosForm extends Component
     {
         $this->validate();
 
-        $this->equipo->mantenimientos()->create([
+        $mantenimiento = $this->equipo->mantenimientos()->create([
             'user_id' => $this->user_id,
             'fecha_programada' => $this->fecha_programada,
             'descripcion' => $this->descripcion,
@@ -38,9 +38,11 @@ class MantenimientosForm extends Component
         $this->reset(['user_id', 'fecha_programada', 'descripcion']);
         $this->dispatch('mantenimientoAgregado');
 
-        $this->equipo->tecnico->notify(new NuevoMantenimiento( $this->equipo->id, $this->equipo->nombre, auth()->user()->id));
+        $mantenimiento->tecnico->notify(new NuevoMantenimiento( $this->equipo->id, $this->equipo->nombre,$this->user_id));
+        
+        //auth()->user()->notify(new NuevoMantenimiento($this->equipo->id, $this->equipo->nombre,$this->user_id));
 
-        session()->flash('mensage', 'Mantenimiento asignado correctamente.');
+        //session()->flash('mensage', 'Mantenimiento asignado correctamente.');
         return redirect()->route('dashboard')->with('mensaje', 'Mantenimiento asignado correctamente.');;
     }
 

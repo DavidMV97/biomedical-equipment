@@ -21,7 +21,9 @@ class EquipoPolicy
      */
     public function view(User $user, Equipo $equipo): bool
     {
-        return false;
+        if ($user->rol == 1 || $user->rol == 3) {
+            return true;
+        }
     }
 
     /**

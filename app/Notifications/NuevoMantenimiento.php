@@ -41,7 +41,7 @@ class NuevoMantenimiento extends Notification
     {
         $url = url('/notificaciones');
         return (new MailMessage)
-            ->line('Se te ha asignado un nuevo mantenimiento al equipo: ' . $this->nombre_equipo)
+            ->line('Se ha asignado un nuevo mantenimiento al equipo: ' . $this->nombre_equipo)
             ->action('Ver asignacion', url($url))
             ;
     }

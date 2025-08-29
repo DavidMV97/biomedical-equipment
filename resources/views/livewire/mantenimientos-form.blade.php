@@ -1,4 +1,7 @@
-<div class="max-w-lg mx-auto bg-white shadow-md rounded-2xl p-6">
+<div class="max-w-lg bg-white shadow-md rounded-2xl p-6">
+    <h3 class="text-2xl font-bold text-gray-800 my-3">
+        Asignar Mantenimiento
+    </h3>
     <form wire:submit.prevent="save" class="space-y-5">
         <!-- Técnico -->
         <div>
@@ -29,8 +32,11 @@
         <!-- Botón -->
         <div class="text-right">
             <button type="submit"
-                class="px-5 py-2 bg-blue-800 text-white rounded-lg shadow-md hover:bg-blue-700 transition">
-                Asignar Mantenimiento
+                class="px-5 py-2 bg-blue-800 text-white rounded-lg shadow-md hover:bg-blue-700 transition" wire:loading.attr="disabled">
+                <span wire:loading.remove>Asignar</span>
+                <span wire:loading>
+                    <i class="fa fa-spinner fa-spin"></i> Asignando...
+                </span>
             </button>
         </div>
     </form>
