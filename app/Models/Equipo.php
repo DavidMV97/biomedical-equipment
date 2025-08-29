@@ -27,4 +27,10 @@ class Equipo extends Model
     {
         return $this->hasMany(Mantenimiento::class);
     }
+
+    public function tecnico()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    
 }

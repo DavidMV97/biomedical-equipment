@@ -12,7 +12,7 @@
             <div class="flex flex-col md:flex-row items-stretch gap-3 mt-5 md:mt-0">
                 <livewire:historial-mantenimientos-modal :equipo="$equipo" />
                 <a href="{{ route('equipos.edit', $equipo->id) }}"
-                    class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center hover:bg-blue-700">Editar</a>
+                    class="md:flex md:items-center bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center hover:bg-blue-700">Editar</a>
                 <button type="button" wire:click="$dispatch('confirmarEliminar', {{ $equipo->id }})"
                     class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center hover:bg-red-500">Eliminar</button>
             </div>

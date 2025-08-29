@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Livewire\HistorialMantenimientos;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,10 @@ Route::get('/equipos/create',  [EquipoController::class, 'create'])->middleware(
 Route::get('/equipos/{equipo}/edit',  [EquipoController::class, 'edit'])->middleware(['auth', 'verified'])->name('equipos.edit');
 Route::get('/equipos/{equipo}',  [EquipoController::class, 'show'])->middleware(['auth', 'verified'])->name('equipos.show');
 Route::get('/equipos/{equipo}/historial', HistorialMantenimientos::class)->name('equipos.historial');
+
+
+// Notificaciones
+Route::get('/notificaciones', NotificationController::class)->name('notificaciones');
 
 
 Route::middleware('auth')->group(function () {

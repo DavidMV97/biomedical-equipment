@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Equipo;
 use App\Models\User;
+use App\Notifications\NuevoMantenimiento;
 use Livewire\Component;
 
 class MantenimientosForm extends Component
@@ -34,10 +35,13 @@ class MantenimientosForm extends Component
             'descripcion' => $this->descripcion,
         ]);
 
-        session()->flash('mensage', 'Mantenimiento asignado correctamente.');
         $this->reset(['user_id', 'fecha_programada', 'descripcion']);
         $this->dispatch('mantenimientoAgregado');
-        return redirect()->route('dashboard');
+
+        $this->equipo->tecnico->notify(new NuevoMantenimiento( $this->equipo->id, $this->equipo->nombre, auth()->user()->id));
+
+        session()->flash('mensage', 'Mantenimiento asignado correctamente.');
+        return redirect()->route('dashboard')->with('mensaje', 'Mantenimiento asignado correctamente.');;
     }
 
     public function render()
