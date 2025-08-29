@@ -1,9 +1,9 @@
 <!-- resources/views/admin/dashboard.blade.php -->
 <x-app-layout>
-    <div class="flex h-screen bg-gray-100">
-
+    <div class="h-screen bg-gray-100">
+        <h1 class="font-extrabold  text-2xl text-gray-800 leading-tight p-6">Gestión de equipos</h1> 
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-md">
+        {{-- <aside class="w-64 bg-white shadow-md">
             <div class="p-6">
                 <h2 class="text-2xl font-bold text-gray-700">Admin Panel</h2>
             </div>
@@ -13,7 +13,7 @@
                 <a href="#" class="block px-6 py-2 text-gray-600 hover:bg-gray-200">📈 Reportes</a>
                 <a href="#" class="block px-6 py-2 text-gray-600 hover:bg-gray-200">⚙️ Configuración</a>
             </nav>
-        </aside>
+        </aside> --}}
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
