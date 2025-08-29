@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model
 {
 
-    use HasFactory; 
-    
+    use HasFactory;
+
     protected $fillable = [
         'nombre',
         'marca',
@@ -21,5 +21,10 @@ class Equipo extends Model
         'estado',
         'imagen',
         'user_id'
-    ]; 
+    ];
+
+    public function mantenimientos()
+    {
+        return $this->hasMany(Mantenimiento::class);
+    }
 }

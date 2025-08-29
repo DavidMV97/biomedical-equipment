@@ -2,7 +2,7 @@
     @forelse ($equipos as $equipo)
         <div class="p-6 bg-white border-b border-gray-200 md:flex md:justify-between md:items-center">
             <div class="space-y-3">
-                <a href="{{ route('equipos.show', $equipo->id)}}" class="text-xl font-bold">
+                <a href="{{ route('equipos.show', $equipo->id)}}" class="text-xl font-bold hover:underline">
                     {{ $equipo->nombre }}
                 </a>
                 <p class="text-sm text-gray-600 font-bold"> Marca: {{ $equipo->marca }} </p>
@@ -10,10 +10,11 @@
             </div>
 
             <div class="flex flex-col md:flex-row items-stretch gap-3 mt-5 md:mt-0">
+                <livewire:historial-mantenimientos-modal :equipo="$equipo" />
                 <a href="{{ route('equipos.edit', $equipo->id) }}"
-                    class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center">Editar</a>
+                    class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center hover:bg-blue-700">Editar</a>
                 <button type="button" wire:click="$dispatch('confirmarEliminar', {{ $equipo->id }})"
-                    class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center">Eliminar</button>
+                    class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center hover:bg-red-500">Eliminar</button>
             </div>
         </div>
     @empty

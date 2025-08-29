@@ -25,6 +25,9 @@
         </div>
     </div>
 
+    <livewire:mantenimientos-form :equipo="$equipo" />
+
+
     {{-- <div class="md:grid md:grid-cols-6 gap-4">
         <div class="md:col-span-2" >
             <img src="{{ asset('storage/equipo/' . $equipo->imagen) }}" alt="Imagen del equipo {{ $equipo->nombre }}">
