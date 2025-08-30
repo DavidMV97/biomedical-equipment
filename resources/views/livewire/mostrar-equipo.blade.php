@@ -16,6 +16,9 @@
                 <p class="font-bold text-sm uppercase text-gray-700 my-3">Modelo:
                     <span class="normal-case font-normal">{{ $equipo->modelo }}</span>
                 </p>
+                 <p class="font-bold text-sm uppercase text-gray-700 my-3">Estado:
+                    <span class="normal-case font-normal">{{ $equipo->estado }}</span>
+                </p>
                 <p class="font-bold text-sm uppercase text-gray-700 my-3">Numero de serie:
                     <span class="normal-case font-normal">{{ $equipo->numeroSerie }}</span>
                 </p>

@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mantenimiento extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'user_id',
         'fecha_programada',
-        'descripcion'
+        'descripcion',
+        'estado'
     ];
+
     public function equipo()
     {
         return $this->belongsTo(Equipo::class);
