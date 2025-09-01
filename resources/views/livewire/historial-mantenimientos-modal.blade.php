@@ -22,7 +22,7 @@
                 @forelse($mantenimientos as $m)
                     <li class="border-b pb-2">
                         <strong>{{ $m->fecha_programada }}</strong> - 
-                        <a href="{{ route('mantenimientos.show', $m->id) }}"> {{ $m->descripcion ?? 'Sin descripción' }} </a>  
+                        <a href="{{ route('mantenimientos.show', $m->id) }}" class="text-blue-700 font-bold hover:underline"> Ver detalle </a>  
                         <br>
                         Técnico: <span class="font-semibold">{{ $m->tecnico->name }}</span> 
                         <span class="text-sm text-gray-500">[{{ $m->estado }}]</span>
